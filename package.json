@@ -8,21 +8,33 @@
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
-    "dev": "next dev"
+    "dev": "next dev",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "1.6.5",
     "next": "15.4.6",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "react-turnstile": "^1.1.4",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.4.4",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^15.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitest/ui": "^1.0.0",
+    "autoprefixer": "^10.4.0",
+    "jsdom": "^26.1.0",
     "tailwindcss": "^4",
     "typescript": "^5",
+    "vitest": "^1.0.0",
     "wrangler": "4.29.0"
   }
 }

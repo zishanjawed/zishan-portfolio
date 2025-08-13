@@ -1,0 +1,86 @@
+{
+  "title": "Writing & Articles",
+  "description": "Technical articles, blog posts, and external writing by Zishan Jawed on backend engineering, fintech, and software architecture.",
+  "writings": [
+    {
+      "id": "payment-systems-architecture",
+      "title": "Building Scalable Payment Systems: Lessons from Fintech",
+      "description": "A comprehensive guide to designing and implementing scalable payment architectures based on real-world experience in the fintech industry.",
+      "url": "https://medium.com/@dev.zishan/building-scalable-payment-systems",
+      "type": "external",
+      "publishedDate": "2024-12-15T10:00:00Z",
+      "readTime": 12,
+      "tags": ["fintech", "payments", "architecture", "scalability"],
+      "featured": true,
+      "author": "Zishan Jawed",
+      "source": "Medium"
+    },
+    {
+      "id": "microservices-patterns",
+      "title": "Microservices Patterns for High-Performance Backends",
+      "description": "Exploring proven patterns and anti-patterns for building microservices that scale and maintain high availability.",
+      "url": "https://dev.to/zishanjawed/microservices-patterns",
+      "type": "external",
+      "publishedDate": "2024-11-20T14:30:00Z",
+      "readTime": 8,
+      "tags": ["microservices", "backend", "patterns", "performance"],
+      "featured": false,
+      "author": "Zishan Jawed",
+      "source": "Dev.to"
+    },
+    {
+      "id": "aws-cost-optimization",
+      "title": "AWS Cost Optimization Strategies for Startups",
+      "description": "Practical strategies for reducing AWS costs while maintaining performance and reliability in early-stage companies.",
+      "url": "https://blog.example.com/aws-cost-optimization",
+      "type": "iframe",
+      "publishedDate": "2024-10-10T09:15:00Z",
+      "readTime": 15,
+      "tags": ["aws", "cost-optimization", "startups", "cloud"],
+      "featured": true,
+      "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop",
+      "author": "Zishan Jawed",
+      "source": "Tech Blog"
+    },
+    {
+      "id": "python-performance-tips",
+      "title": "Python Performance Optimization for Backend Services",
+      "description": "Advanced techniques for optimizing Python applications in production environments, focusing on memory usage and execution speed.",
+      "url": "https://python-performance.example.com",
+      "type": "blog",
+      "publishedDate": "2024-09-05T16:45:00Z",
+      "readTime": 10,
+      "tags": ["python", "performance", "backend", "optimization"],
+      "featured": false,
+      "author": "Zishan Jawed",
+      "source": "Personal Blog"
+    },
+    {
+      "id": "database-design-principles",
+      "title": "Database Design Principles for High-Traffic Applications",
+      "description": "Essential database design principles and best practices for applications handling millions of transactions.",
+      "url": "https://database-design.example.com",
+      "type": "external",
+      "publishedDate": "2024-08-15T11:20:00Z",
+      "readTime": 18,
+      "tags": ["database", "design", "scalability", "performance"],
+      "featured": true,
+      "author": "Zishan Jawed",
+      "source": "Database Weekly"
+    },
+    {
+      "id": "api-security-best-practices",
+      "title": "API Security Best Practices for Financial Applications",
+      "description": "Comprehensive security guidelines for building APIs in the financial sector, covering authentication, authorization, and data protection.",
+      "url": "https://api-security.example.com",
+      "type": "blog",
+      "publishedDate": "2024-07-22T13:10:00Z",
+      "readTime": 14,
+      "tags": ["api", "security", "fintech", "authentication"],
+      "featured": false,
+      "author": "Zishan Jawed",
+      "source": "Security Blog"
+    }
+  ],
+  "totalCount": 6
+} 
