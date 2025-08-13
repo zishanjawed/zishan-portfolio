@@ -1,5 +1,6 @@
 import { generateHomePageMetadata } from "../../lib/seo/metadata";
 import { PersonStructuredData } from "../../components/seo/person-schema";
+import { PerformanceMonitor } from "../../components/analytics/performance-monitor";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = generateHomePageMetadata();
@@ -8,6 +9,7 @@ export default function Home() {
   return (
     <>
       <PersonStructuredData />
+      <PerformanceMonitor pageName="home" />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
         <main className="container mx-auto px-4 py-16">
           <div className="max-w-4xl mx-auto text-center">

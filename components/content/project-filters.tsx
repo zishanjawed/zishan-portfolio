@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Filter, X } from 'lucide-react';
 import { ProjectFilters } from '../../types/project-utils';
+import { trackSearch, trackFilter } from '../../lib/analytics';
 
 interface ProjectFiltersProps {
   filters: ProjectFilters;
@@ -9,6 +10,7 @@ interface ProjectFiltersProps {
   technologies: string[];
   clients: string[];
   className?: string;
+  totalResults?: number;
 }
 
 export function ProjectFiltersComponent({ 
@@ -17,7 +19,8 @@ export function ProjectFiltersComponent({
   categories, 
   technologies, 
   clients, 
-  className = '' 
+  className = '',
+  totalResults = 0
 }: ProjectFiltersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -33,10 +36,26 @@ export function ProjectFiltersComponent({
       delete newFilters[key];
     }
     onFiltersChange(newFilters);
+
+    // Track filter change
+    const filterArray = Object.entries(newFilters).map(([k, v]) => ({ key: k, value: v }));
+    trackFilter(filterArray, 'projects', totalResults);
+  };
+
+  const handleSearchChange = (value: string) => {
+    const newFilters = { ...filters, search: value };
+    onFiltersChange(newFilters);
+
+    // Track search
+    if (value.trim()) {
+      trackSearch(value, totalResults, 'projects');
+    }
   };
 
   const clearFilters = () => {
     onFiltersChange({});
+    // Track filter clear
+    trackFilter([], 'projects', totalResults);
   };
 
   const hasActiveFilters = Object.keys(filters).length > 0;
@@ -69,7 +88,7 @@ export function ProjectFiltersComponent({
           type="text"
           placeholder="Search projects..."
           value={filters.search || ''}
-          onChange={(e) => handleFilterChange('search', e.target.value)}
+          onChange={(e) => handleSearchChange(e.target.value)}
           className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           aria-label="Search projects"
         />

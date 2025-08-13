@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { WritingContent } from '../../types/writing';
 import { cn } from '../../lib/utils/cn';
+import { trackSearch, trackFilter } from '../../lib/analytics';
 
 export interface FilterState {
   platform: string;
@@ -16,13 +17,15 @@ interface WritingFiltersProps {
   filters: FilterState;
   onFiltersChange: (filters: FilterState) => void;
   className?: string;
+  totalResults?: number;
 }
 
 export function WritingFilters({ 
   writings, 
   filters, 
   onFiltersChange, 
-  className = '' 
+  className = '',
+  totalResults = 0
 }: WritingFiltersProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const searchRef = useRef<HTMLInputElement>(null);
@@ -33,7 +36,25 @@ export function WritingFilters({
 
   // Handle filter changes
   const updateFilter = (key: keyof FilterState, value: string | boolean) => {
-    onFiltersChange({ ...filters, [key]: value });
+    const newFilters = { ...filters, [key]: value };
+    onFiltersChange(newFilters);
+
+    // Track filter change
+    const filterArray = Object.entries(newFilters)
+      .filter(([_, v]) => v !== '' && v !== false)
+      .map(([k, v]) => ({ key: k, value: v }));
+    trackFilter(filterArray, 'writing', totalResults);
+  };
+
+  // Handle search changes
+  const handleSearchChange = (value: string) => {
+    const newFilters = { ...filters, search: value };
+    onFiltersChange(newFilters);
+
+    // Track search
+    if (value.trim()) {
+      trackSearch(value, totalResults, 'writing');
+    }
   };
 
   // Clear all filters
@@ -44,6 +65,8 @@ export function WritingFilters({
       search: '',
       featured: false
     });
+    // Track filter clear
+    trackFilter([], 'writing', totalResults);
   };
 
   // Check if any filters are active
@@ -80,7 +103,7 @@ export function WritingFilters({
             type="text"
             placeholder="Search articles... (Press '/' to focus)"
             value={filters.search}
-            onChange={(e) => updateFilter('search', e.target.value)}
+            onChange={(e) => handleSearchChange(e.target.value)}
             onKeyDown={handleKeyDown}
             className="w-full px-4 py-3 pl-10 pr-12 text-sm border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
             aria-label="Search articles"
@@ -92,7 +115,7 @@ export function WritingFilters({
           </div>
           {filters.search && (
             <button
-              onClick={() => updateFilter('search', '')}
+              onClick={() => handleSearchChange('')}
               className="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               aria-label="Clear search"
             >
@@ -272,7 +295,7 @@ export function WritingFilters({
             <span className="inline-flex items-center px-2 py-1 text-xs bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 rounded-md">
               Search: "{filters.search}"
               <button
-                onClick={() => updateFilter('search', '')}
+                onClick={() => handleSearchChange('')}
                 className="ml-1 text-yellow-600 dark:text-yellow-400 hover:text-yellow-800 dark:hover:text-yellow-200"
                 aria-label="Remove search filter"
               >

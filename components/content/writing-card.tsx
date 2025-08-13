@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { WritingContent } from '../../types/writing';
-import { trackExternalLink } from '../../lib/analytics';
+import { trackExternalLink, trackWritingInteraction } from '../../lib/analytics';
 
 interface WritingCardProps {
   writing: WritingContent;
@@ -20,7 +20,14 @@ export function WritingCard({ writing, className = '' }: WritingCardProps) {
   };
 
   const handleLinkClick = () => {
+    // Track writing interaction
+    trackWritingInteraction(writing.title, 'click');
     trackExternalLink(writing.url, writing.title, writing.source);
+  };
+
+  const handleCardClick = () => {
+    // Track writing view
+    trackWritingInteraction(writing.title, 'view');
   };
 
   const getTypeIcon = (type: string) => {
@@ -51,8 +58,11 @@ export function WritingCard({ writing, className = '' }: WritingCardProps) {
 
   return (
     <article 
-      className={`group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 ${className}`}
+      className={`group relative bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700 cursor-pointer ${className}`}
       aria-labelledby={`writing-title-${writing.id}`}
+      onClick={handleCardClick}
+      tabIndex={0}
+      role="button"
     >
       {/* Featured Badge */}
       {writing.featured && (
@@ -145,7 +155,10 @@ export function WritingCard({ writing, className = '' }: WritingCardProps) {
             rel="noopener noreferrer"
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
             aria-label={`Read ${writing.title} (opens in new tab)`}
-            onClick={handleLinkClick}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleLinkClick();
+            }}
           >
             Read Article
             <svg 
@@ -159,12 +172,15 @@ export function WritingCard({ writing, className = '' }: WritingCardProps) {
                 strokeLinecap="round" 
                 strokeLinejoin="round" 
                 strokeWidth={2} 
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" 
               />
             </svg>
           </a>
         </div>
       </div>
+
+      {/* Hover overlay */}
+      <div className="absolute inset-0 bg-blue-600 bg-opacity-0 group-hover:bg-opacity-5 transition-all duration-300 pointer-events-none" />
     </article>
   );
 } 

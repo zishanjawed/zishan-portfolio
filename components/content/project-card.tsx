@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { ProjectContent } from '../../schemas/projects';
-import { trackExternalLink } from '../../lib/analytics';
+import { trackExternalLink, trackProjectInteraction } from '../../lib/analytics';
 
 interface ProjectCardProps {
   project: ProjectContent;
@@ -71,6 +71,9 @@ export function ProjectCard({ project, className = '', onClick }: ProjectCardPro
   };
 
   const handleCardClick = () => {
+    // Track project interaction
+    trackProjectInteraction(project.title, 'click');
+    
     if (onClick) {
       onClick(project);
     }
@@ -81,6 +84,10 @@ export function ProjectCard({ project, className = '', onClick }: ProjectCardPro
       event.preventDefault();
       handleCardClick();
     }
+  };
+
+  const handleExternalLinkClick = (url: string, title: string) => {
+    trackExternalLink(url, title, 'project_card');
   };
 
   return (
@@ -215,6 +222,29 @@ export function ProjectCard({ project, className = '', onClick }: ProjectCardPro
             {project.role}
           </span>
         </div>
+
+        {/* External Links */}
+        {project.links && project.links.length > 0 && (
+          <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex flex-wrap gap-2">
+              {project.links.map((link, index) => (
+                <a
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleExternalLinkClick(link.url, `${project.title} - ${link.label}`);
+                  }}
+                  className="inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800 transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Hover overlay */}

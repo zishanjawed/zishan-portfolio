@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { loadWritingContent, sortWritingsByDate } from '../../../lib/content/writing';
 import { WritingPageClient } from '../../../components/content/writing-page-client';
+import { PerformanceMonitor } from '../../../components/analytics/performance-monitor';
 import { generateWritingPageMetadata } from '../../../lib/seo/metadata';
 
 // Generate metadata for SEO
@@ -129,6 +130,7 @@ async function WritingPageContent() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
+        <PerformanceMonitor pageName="writing" />
         <WritingPageClient
           writings={sortedWritings}
           title={data.title}

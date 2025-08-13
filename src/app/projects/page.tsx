@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { loadProjectsContent } from '../../../lib/content/projects';
 import { ProjectsPageClient } from '../../../components/content/projects-page-client';
 import { ProjectStructuredData } from '../../../components/seo/project-schema';
+import { PerformanceMonitor } from '../../../components/analytics/performance-monitor';
 import { generateProjectsPageMetadata } from '../../../lib/seo/metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -22,6 +23,7 @@ export default async function ProjectsPage() {
     return (
       <>
         <ProjectStructuredData data={data} />
+        <PerformanceMonitor pageName="projects" />
         <ProjectsPageClient data={data} />
       </>
     );

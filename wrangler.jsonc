@@ -19,10 +19,12 @@
         // IMPORTANT: must match "name"
         "service": "zishan-portfolio"
       }
-    ]
+    ],
+    "vars": {
+      "NEXT_PUBLIC_CLOUDFLARE_ANALYTICS_TOKEN": "CHANGE_ME_TO_YOUR_CLOUDFLARE_ANALYTICS_TOKEN"
+    }
   
     // Add real resources later, for example:
-    // "vars": { "PUBLIC_FLAG": "1" },
     // "kv_namespaces": [{ "binding": "MY_KV", "id": "xxxxxxxx" }],
     // "r2_buckets": [{ "binding": "MY_BUCKET", "bucket_name": "my-bucket" }]
   }
