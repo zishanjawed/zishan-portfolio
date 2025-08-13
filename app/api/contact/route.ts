@@ -1,6 +1,7 @@
 // app/api/contact/route.ts
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import { contactFormSchema, contactFormResponseSchema } from "../../../schemas/contact";
+import { trackContactSubmission } from "../../../lib/analytics";
 
 // Simple in-memory rate limiting (in production, use Cloudflare KV or similar)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -72,14 +73,19 @@ async function sendWebhookNotification(data: any, webhookUrl: string): Promise<v
 async function logContactSubmission(data: any): Promise<void> {
   try {
     // In a real implementation, you might want to store this in a database
-    // For now, we'll just log it to console
-    console.log('Contact form submission:', {
+    // For now, we'll just log it to console and track analytics
+    const submission = {
       timestamp: new Date().toISOString(),
       name: data.name,
       email: data.email,
       subject: data.subject,
       message: data.message,
-    });
+    };
+    
+    console.log('Contact form submission:', submission);
+    
+    // Track successful submission
+    trackContactSubmission(true);
   } catch (error) {
     console.error('Error logging contact submission:', error);
   }
@@ -103,6 +109,9 @@ export async function POST(req: Request) {
         message: 'Too many requests. Please try again later.',
       });
       
+      // Track rate limit error
+      trackContactSubmission(false, 'rate_limit_exceeded');
+      
       return new Response(JSON.stringify(response), {
         status: 429,
         headers: {
@@ -124,6 +133,8 @@ export async function POST(req: Request) {
         message: 'Invalid request format.',
       });
       
+      trackContactSubmission(false, 'invalid_json');
+      
       return new Response(JSON.stringify(response), {
         status: 400,
         headers: { 'content-type': 'application/json' },
@@ -142,6 +153,8 @@ export async function POST(req: Request) {
         details: error instanceof Error ? [error.message] : ['Unknown validation error'],
       });
       
+      trackContactSubmission(false, 'validation_failed');
+      
       return new Response(JSON.stringify(response), {
         status: 400,
         headers: { 'content-type': 'application/json' },
@@ -158,6 +171,8 @@ export async function POST(req: Request) {
         message: 'Server configuration error.',
       });
       
+      trackContactSubmission(false, 'server_configuration_error');
+      
       return new Response(JSON.stringify(response), {
         status: 500,
         headers: { 'content-type': 'application/json' },
@@ -172,6 +187,8 @@ export async function POST(req: Request) {
         message: 'Security verification failed. Please try again.',
         details: turnstileResult.errorCodes || ['unknown_error'],
       });
+      
+      trackContactSubmission(false, 'turnstile_verification_failed');
       
       return new Response(JSON.stringify(response), {
         status: 403,
@@ -211,6 +228,8 @@ export async function POST(req: Request) {
       error: 'internal_server_error',
       message: 'An unexpected error occurred. Please try again later.',
     });
+    
+    trackContactSubmission(false, 'internal_server_error');
     
     return new Response(JSON.stringify(response), {
       status: 500,

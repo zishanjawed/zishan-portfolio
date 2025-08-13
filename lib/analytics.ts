@@ -112,4 +112,44 @@ export function trackIframeInteraction(title: string, interactionType: string): 
     category: 'iframe',
     label: `${title} (${interactionType})`,
   });
+}
+
+/**
+ * Track form interaction
+ * @param formName - The name of the form
+ * @param action - The action performed (start, submit, success, error)
+ * @param details - Additional details about the interaction
+ */
+export function trackFormInteraction(formName: string, action: string, details?: string): void {
+  trackEvent({
+    action: `form_${action}`,
+    category: 'form',
+    label: `${formName}${details ? ` (${details})` : ''}`,
+  });
+}
+
+/**
+ * Track Turnstile interaction
+ * @param action - The action performed (verify, success, error, expire)
+ * @param details - Additional details about the interaction
+ */
+export function trackTurnstileInteraction(action: string, details?: string): void {
+  trackEvent({
+    action: `turnstile_${action}`,
+    category: 'security',
+    label: details || action,
+  });
+}
+
+/**
+ * Track contact form submission
+ * @param success - Whether the submission was successful
+ * @param errorType - Type of error if submission failed
+ */
+export function trackContactSubmission(success: boolean, errorType?: string): void {
+  trackEvent({
+    action: success ? 'contact_form_success' : 'contact_form_error',
+    category: 'contact',
+    label: errorType || (success ? 'success' : 'error'),
+  });
 } 

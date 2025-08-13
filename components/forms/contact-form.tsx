@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Turnstile from 'react-turnstile';
 import { contactFormSchema, type ContactFormData, type ContactFormResponse } from '../../schemas/contact';
+import { trackFormInteraction, trackTurnstileInteraction, trackContactSubmission } from '../../lib/analytics';
 
 interface ContactFormProps {
   siteKey: string;
@@ -31,6 +32,11 @@ export function ContactForm({ siteKey }: ContactFormProps) {
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
+
+    // Track form interaction when user starts filling
+    if (!formData[name] && value) {
+      trackFormInteraction('contact', 'start', `field_${name}`);
+    }
   };
 
   const handleTurnstileVerify = (token: string) => {
@@ -38,11 +44,13 @@ export function ContactForm({ siteKey }: ContactFormProps) {
     if (errors.turnstileToken) {
       setErrors(prev => ({ ...prev, turnstileToken: '' }));
     }
+    trackTurnstileInteraction('verify', 'success');
   };
 
   const handleTurnstileExpire = () => {
     setTurnstileToken('');
     setErrors(prev => ({ ...prev, turnstileToken: 'Verification expired. Please try again.' }));
+    trackTurnstileInteraction('expire', 'token_expired');
   };
 
   const validateForm = (): boolean => {
@@ -63,6 +71,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
         }
         
         setErrors(newErrors);
+        trackFormInteraction('contact', 'validation_error', Object.keys(newErrors).join(','));
       }
       return false;
     }
@@ -70,6 +79,8 @@ export function ContactForm({ siteKey }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    trackFormInteraction('contact', 'submit', 'attempt');
     
     if (!validateForm()) {
       return;
@@ -97,6 +108,9 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           type: 'success',
           message: 'Thank you for your message! I\'ll get back to you soon.',
         });
+        trackContactSubmission(true);
+        trackFormInteraction('contact', 'success', 'submission_complete');
+        
         // Reset form
         setFormData({ name: '', email: '', subject: '', message: '' });
         setTurnstileToken('');
@@ -109,12 +123,16 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           type: 'error',
           message: result.error || 'Something went wrong. Please try again.',
         });
+        trackContactSubmission(false, result.error);
+        trackFormInteraction('contact', 'error', result.error || 'unknown_error');
       }
     } catch (error) {
       setSubmitStatus({
         type: 'error',
         message: 'Network error. Please check your connection and try again.',
       });
+      trackContactSubmission(false, 'network_error');
+      trackFormInteraction('contact', 'error', 'network_error');
     } finally {
       setIsSubmitting(false);
     }
@@ -139,6 +157,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           placeholder="Your name"
           aria-describedby={errors.name ? 'name-error' : undefined}
           disabled={isSubmitting}
+          required
         />
         {errors.name && (
           <p id="name-error" className="mt-1 text-sm text-red-600" role="alert">
@@ -164,6 +183,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           placeholder="your.email@example.com"
           aria-describedby={errors.email ? 'email-error' : undefined}
           disabled={isSubmitting}
+          required
         />
         {errors.email && (
           <p id="email-error" className="mt-1 text-sm text-red-600" role="alert">
@@ -189,6 +209,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           placeholder="What's this about?"
           aria-describedby={errors.subject ? 'subject-error' : undefined}
           disabled={isSubmitting}
+          required
         />
         {errors.subject && (
           <p id="subject-error" className="mt-1 text-sm text-red-600" role="alert">
@@ -214,6 +235,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           placeholder="Tell me about your project or opportunity..."
           aria-describedby={errors.message ? 'message-error' : undefined}
           disabled={isSubmitting}
+          required
         />
         {errors.message && (
           <p id="message-error" className="mt-1 text-sm text-red-600" role="alert">
@@ -230,6 +252,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
           onExpire={handleTurnstileExpire}
           onError={() => {
             setErrors(prev => ({ ...prev, turnstileToken: 'Verification failed. Please try again.' }));
+            trackTurnstileInteraction('error', 'verification_failed');
           }}
           theme="light"
           size="normal"
@@ -250,6 +273,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
               : 'bg-red-50 border border-red-200 text-red-800'
           }`}
           role="alert"
+          aria-live="polite"
         >
           {submitStatus.message}
         </div>
@@ -264,9 +288,16 @@ export function ContactForm({ siteKey }: ContactFormProps) {
             ? 'bg-gray-400 cursor-not-allowed'
             : 'bg-blue-600 hover:bg-blue-700'
         }`}
+        aria-describedby={!turnstileToken ? 'turnstile-required' : undefined}
       >
         {isSubmitting ? 'Sending...' : 'Send Message'}
       </button>
+      
+      {!turnstileToken && (
+        <p id="turnstile-required" className="text-sm text-gray-600 text-center">
+          Please complete the security verification above
+        </p>
+      )}
     </form>
   );
 } 
