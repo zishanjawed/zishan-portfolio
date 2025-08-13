@@ -28,6 +28,7 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number; rese
   return { allowed: true, remaining: maxRequests - record.count, resetTime: record.resetTime };
 }
 
+// Extracted Turnstile verification function to avoid code duplication
 async function verifyTurnstile(token: string, secret: string): Promise<{ success: boolean; errorCodes?: string[] }> {
   try {
     const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
@@ -91,6 +92,30 @@ async function logContactSubmission(data: any): Promise<void> {
   }
 }
 
+// Helper function to create consistent error responses
+function createErrorResponse(
+  error: string, 
+  message: string, 
+  status: number, 
+  details?: string[],
+  headers?: Record<string, string>
+): Response {
+  const response = contactFormResponseSchema.parse({
+    success: false,
+    error,
+    message,
+    details,
+  });
+  
+  return new Response(JSON.stringify(response), {
+    status,
+    headers: {
+      'content-type': 'application/json',
+      ...headers,
+    },
+  });
+}
+
 export async function POST(req: Request) {
   const { env } = getCloudflareContext();
   
@@ -103,23 +128,18 @@ export async function POST(req: Request) {
     // Check rate limit
     const rateLimit = checkRateLimit(clientIP);
     if (!rateLimit.allowed) {
-      const response = contactFormResponseSchema.parse({
-        success: false,
-        error: 'rate_limit_exceeded',
-        message: 'Too many requests. Please try again later.',
-      });
-      
-      // Track rate limit error
       trackContactSubmission(false, 'rate_limit_exceeded');
       
-      return new Response(JSON.stringify(response), {
-        status: 429,
-        headers: {
-          'content-type': 'application/json',
+      return createErrorResponse(
+        'rate_limit_exceeded',
+        'Too many requests. Please try again later.',
+        429,
+        undefined,
+        {
           'x-ratelimit-remaining': rateLimit.remaining.toString(),
           'x-ratelimit-reset': rateLimit.resetTime.toString(),
-        },
-      });
+        }
+      );
     }
 
     // Parse and validate request body
@@ -127,18 +147,8 @@ export async function POST(req: Request) {
     try {
       body = await req.json();
     } catch (error) {
-      const response = contactFormResponseSchema.parse({
-        success: false,
-        error: 'invalid_json',
-        message: 'Invalid request format.',
-      });
-      
       trackContactSubmission(false, 'invalid_json');
-      
-      return new Response(JSON.stringify(response), {
-        status: 400,
-        headers: { 'content-type': 'application/json' },
-      });
+      return createErrorResponse('invalid_json', 'Invalid request format.', 400);
     }
 
     // Validate form data with Zod
@@ -146,54 +156,30 @@ export async function POST(req: Request) {
     try {
       validatedData = contactFormSchema.parse(body);
     } catch (error) {
-      const response = contactFormResponseSchema.parse({
-        success: false,
-        error: 'validation_failed',
-        message: 'Invalid form data.',
-        details: error instanceof Error ? [error.message] : ['Unknown validation error'],
-      });
-      
       trackContactSubmission(false, 'validation_failed');
       
-      return new Response(JSON.stringify(response), {
-        status: 400,
-        headers: { 'content-type': 'application/json' },
-      });
+      const details = error instanceof Error ? [error.message] : ['Unknown validation error'];
+      return createErrorResponse('validation_failed', 'Invalid form data.', 400, details);
     }
 
     // Verify Turnstile token
     const turnstileSecret = env.TURNSTILE_SECRET;
     if (!turnstileSecret) {
       console.error('TURNSTILE_SECRET not configured');
-      const response = contactFormResponseSchema.parse({
-        success: false,
-        error: 'server_configuration_error',
-        message: 'Server configuration error.',
-      });
-      
       trackContactSubmission(false, 'server_configuration_error');
-      
-      return new Response(JSON.stringify(response), {
-        status: 500,
-        headers: { 'content-type': 'application/json' },
-      });
+      return createErrorResponse('server_configuration_error', 'Server configuration error.', 500);
     }
 
     const turnstileResult = await verifyTurnstile(validatedData.turnstileToken, turnstileSecret);
     if (!turnstileResult.success) {
-      const response = contactFormResponseSchema.parse({
-        success: false,
-        error: 'turnstile_verification_failed',
-        message: 'Security verification failed. Please try again.',
-        details: turnstileResult.errorCodes || ['unknown_error'],
-      });
-      
       trackContactSubmission(false, 'turnstile_verification_failed');
       
-      return new Response(JSON.stringify(response), {
-        status: 403,
-        headers: { 'content-type': 'application/json' },
-      });
+      return createErrorResponse(
+        'turnstile_verification_failed',
+        'Security verification failed. Please try again.',
+        403,
+        turnstileResult.errorCodes || ['unknown_error']
+      );
     }
 
     // Send webhook notification if configured
@@ -222,18 +208,12 @@ export async function POST(req: Request) {
 
   } catch (error) {
     console.error('Contact form API error:', error);
-    
-    const response = contactFormResponseSchema.parse({
-      success: false,
-      error: 'internal_server_error',
-      message: 'An unexpected error occurred. Please try again later.',
-    });
-    
     trackContactSubmission(false, 'internal_server_error');
     
-    return new Response(JSON.stringify(response), {
-      status: 500,
-      headers: { 'content-type': 'application/json' },
-    });
+    return createErrorResponse(
+      'internal_server_error',
+      'An unexpected error occurred. Please try again later.',
+      500
+    );
   }
 }
