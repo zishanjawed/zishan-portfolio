@@ -1,15 +1,9 @@
 import { Metadata } from 'next';
 import { ContactForm } from '../../../components/forms/contact-form';
+import { Breadcrumbs, breadcrumbConfigs } from '../../../components/navigation/breadcrumbs';
+import { generateContactPageMetadata } from '../../../lib/seo/metadata';
 
-export const metadata: Metadata = {
-  title: 'Contact - Zishan Jawed',
-  description: 'Get in touch with Zishan Jawed for professional opportunities, collaborations, or just to say hello.',
-  openGraph: {
-    title: 'Contact - Zishan Jawed',
-    description: 'Get in touch with Zishan Jawed for professional opportunities, collaborations, or just to say hello.',
-    type: 'website',
-  },
-};
+export const metadata: Metadata = generateContactPageMetadata();
 
 export default function ContactPage() {
   // In production, this would come from environment variables
@@ -18,6 +12,9 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
+        {/* Breadcrumbs */}
+        <Breadcrumbs items={breadcrumbConfigs.contact} />
+
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">

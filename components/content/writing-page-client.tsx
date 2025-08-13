@@ -3,6 +3,7 @@
 import { WritingContent } from '../../types/writing';
 import { WritingGrid } from './writing-grid';
 import { WritingFilters } from './writing-filters';
+import { Breadcrumbs, breadcrumbConfigs } from '../navigation/breadcrumbs';
 import { useWritingFilters } from '../../hooks/use-writing-filters';
 import { filterWritings } from '../../lib/filtering';
 import { trackEvent } from '../../lib/analytics';
@@ -47,6 +48,9 @@ export function WritingPageClient({
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Breadcrumbs */}
+        <Breadcrumbs items={breadcrumbConfigs.writing} />
+
         {/* Page Header */}
         <header className="mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">

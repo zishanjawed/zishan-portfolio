@@ -2,27 +2,11 @@ import { Metadata } from 'next';
 import { loadProjectsContent } from '../../../lib/content/projects';
 import { ProjectsPageClient } from '../../../components/content/projects-page-client';
 import { ProjectStructuredData } from '../../../components/seo/project-schema';
+import { generateProjectsPageMetadata } from '../../../lib/seo/metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const data = await loadProjectsContent();
-    
-    return {
-      title: data.metaTitle,
-      description: data.metaDescription,
-      openGraph: {
-        title: data.metaTitle,
-        description: data.metaDescription,
-        images: data.socialImage ? [{ url: data.socialImage }] : [],
-        type: 'website',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: data.metaTitle,
-        description: data.metaDescription,
-        images: data.socialImage ? [data.socialImage] : [],
-      },
-    };
+    return generateProjectsPageMetadata();
   } catch (error) {
     return {
       title: 'Projects & Case Studies - Zishan Jawed',

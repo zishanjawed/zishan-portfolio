@@ -2,27 +2,12 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { loadWritingContent, sortWritingsByDate } from '../../../lib/content/writing';
 import { WritingPageClient } from '../../../components/content/writing-page-client';
+import { generateWritingPageMetadata } from '../../../lib/seo/metadata';
 
 // Generate metadata for SEO
 export async function generateMetadata(): Promise<Metadata> {
   try {
-    const data = await loadWritingContent();
-    
-    return {
-      title: data.title,
-      description: data.description,
-      openGraph: {
-        title: data.title,
-        description: data.description,
-        type: 'website',
-        url: '/writing',
-      },
-      twitter: {
-        card: 'summary_large_image',
-        title: data.title,
-        description: data.description,
-      },
-    };
+    return generateWritingPageMetadata();
   } catch (error) {
     return {
       title: 'Writing & Articles',

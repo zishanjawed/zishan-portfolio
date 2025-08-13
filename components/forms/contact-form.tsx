@@ -69,7 +69,7 @@ export function ContactForm({ siteKey }: ContactFormProps) {
     clearFieldError(name);
 
     // Track form interaction when user starts filling
-    if (!formData[name] && value) {
+    if (!formData[name as keyof ContactFormData] && value) {
       trackFormInteraction('contact', 'start', `field_${name}`);
     }
   };

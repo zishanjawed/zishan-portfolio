@@ -5,6 +5,7 @@ import { ProjectContent, ProjectsPageData } from '../../schemas/projects';
 import { ProjectsGrid } from './projects-grid';
 import { ProjectFiltersComponent } from './project-filters';
 import { ProjectDrawer } from '../ui/project-drawer';
+import { Breadcrumbs, breadcrumbConfigs } from '../navigation/breadcrumbs';
 import { useProjectFilters } from '../../hooks/use-project-filters';
 import { 
   getUniqueCategories, 
@@ -41,6 +42,9 @@ export function ProjectsPageClient({ data }: ProjectsPageClientProps) {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Breadcrumbs */}
+        <Breadcrumbs items={breadcrumbConfigs.projects} />
+
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
