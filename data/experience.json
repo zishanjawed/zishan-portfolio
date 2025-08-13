@@ -1,0 +1,259 @@
+{
+  "experience": {
+    "workExperience": [
+      {
+        "id": "payflow-technologies",
+        "company": "PayFlow Technologies",
+        "position": "Lead Backend Engineer",
+        "location": "Mumbai, India",
+        "startDate": "2023-01-15T00:00:00Z",
+        "endDate": "2024-06-30T00:00:00Z",
+        "current": false,
+        "description": "Led the development of a high-performance payment processing platform handling millions of transactions daily. Implemented microservices architecture with 99.99% uptime and sub-100ms response times.",
+        "responsibilities": [
+          "Architected the microservices-based payment processing system",
+          "Implemented high-performance database design with sharding",
+          "Designed and implemented security and compliance features",
+          "Led the development team and mentored junior engineers",
+          "Established monitoring, logging, and alerting infrastructure"
+        ],
+        "technologies": [
+          {
+            "name": "Node.js",
+            "category": "backend",
+            "version": "18.x"
+          },
+          {
+            "name": "PostgreSQL",
+            "category": "database",
+            "version": "15.x"
+          },
+          {
+            "name": "Redis",
+            "category": "database",
+            "version": "7.x"
+          },
+          {
+            "name": "Docker",
+            "category": "devops"
+          },
+          {
+            "name": "Kubernetes",
+            "category": "devops"
+          },
+          {
+            "name": "AWS",
+            "category": "cloud"
+          }
+        ],
+        "achievements": [
+          {
+            "title": "Scaled to 5M+ Daily Transactions",
+            "description": "Successfully scaled the payment platform to handle over 5 million daily transactions",
+            "impact": "40% reduction in infrastructure costs while maintaining 99.99% uptime",
+            "date": "2024-06-15T00:00:00Z"
+          },
+          {
+            "title": "PCI DSS Compliance",
+            "description": "Achieved and maintained PCI DSS Level 1 compliance for payment processing",
+            "impact": "Enabled secure processing of credit card transactions",
+            "date": "2024-03-20T00:00:00Z"
+          }
+        ],
+        "companyUrl": "https://payflowtech.com",
+        "industry": "Fintech",
+        "teamSize": 8,
+        "projectType": "full-time",
+        "featured": true
+      },
+      {
+        "id": "ecommerce-solutions",
+        "company": "Ecommerce Solutions Inc.",
+        "position": "Senior Backend Engineer",
+        "location": "Bangalore, India",
+        "startDate": "2021-03-01T00:00:00Z",
+        "endDate": "2022-12-31T00:00:00Z",
+        "current": false,
+        "description": "Developed scalable backend systems for multiple ecommerce platforms. Implemented RESTful APIs, database optimization, and cloud infrastructure solutions.",
+        "responsibilities": [
+          "Designed and implemented RESTful APIs for ecommerce platforms",
+          "Optimized database queries and implemented caching strategies",
+          "Implemented payment gateway integrations",
+          "Developed inventory management and order processing systems",
+          "Collaborated with frontend teams for API integration"
+        ],
+        "technologies": [
+          {
+            "name": "Node.js",
+            "category": "backend",
+            "version": "16.x"
+          },
+          {
+            "name": "Express.js",
+            "category": "framework"
+          },
+          {
+            "name": "PostgreSQL",
+            "category": "database",
+            "version": "13.x"
+          },
+          {
+            "name": "Redis",
+            "category": "database"
+          },
+          {
+            "name": "Docker",
+            "category": "devops"
+          },
+          {
+            "name": "AWS",
+            "category": "cloud"
+          }
+        ],
+        "achievements": [
+          {
+            "title": "API Performance Optimization",
+            "description": "Improved API response times by 60% through database optimization and caching",
+            "impact": "Enhanced user experience and reduced server load",
+            "date": "2022-08-15T00:00:00Z"
+          }
+        ],
+        "industry": "Ecommerce",
+        "teamSize": 12,
+        "projectType": "full-time",
+        "featured": false
+      },
+      {
+        "id": "startup-consulting",
+        "company": "Freelance Consultant",
+        "position": "Backend Engineering Consultant",
+        "location": "Remote",
+        "startDate": "2020-01-01T00:00:00Z",
+        "endDate": "2021-02-28T00:00:00Z",
+        "current": false,
+        "description": "Provided consulting services to multiple startups, helping them build scalable backend systems and optimize their technical infrastructure.",
+        "responsibilities": [
+          "Architected backend systems for early-stage startups",
+          "Implemented database design and optimization strategies",
+          "Set up CI/CD pipelines and deployment infrastructure",
+          "Provided technical guidance and code reviews",
+          "Mentored development teams on best practices"
+        ],
+        "technologies": [
+          {
+            "name": "Node.js",
+            "category": "backend"
+          },
+          {
+            "name": "Python",
+            "category": "backend"
+          },
+          {
+            "name": "PostgreSQL",
+            "category": "database"
+          },
+          {
+            "name": "MongoDB",
+            "category": "database"
+          },
+          {
+            "name": "Docker",
+            "category": "devops"
+          },
+          {
+            "name": "AWS",
+            "category": "cloud"
+          }
+        ],
+        "industry": "Consulting",
+        "teamSize": 1,
+        "projectType": "freelance",
+        "featured": false
+      }
+    ],
+    "education": [
+      {
+        "id": "bachelor-computer-science",
+        "institution": "Mumbai University",
+        "degree": "Bachelor of Engineering",
+        "field": "Computer Science",
+        "startDate": "2016-08-01T00:00:00Z",
+        "endDate": "2020-05-31T00:00:00Z",
+        "current": false,
+        "description": "Completed a comprehensive computer science program with focus on software engineering, algorithms, and system design.",
+        "gpa": 3.8,
+        "achievements": [
+          "Dean's List for Academic Excellence",
+          "Best Final Year Project Award",
+          "Technical Lead for College Coding Club"
+        ],
+        "location": "Mumbai, India",
+        "featured": true
+      },
+      {
+        "id": "aws-certification",
+        "institution": "Amazon Web Services",
+        "degree": "AWS Certified Solutions Architect",
+        "field": "Cloud Architecture",
+        "startDate": "2022-06-01T00:00:00Z",
+        "endDate": "2022-06-01T00:00:00Z",
+        "current": false,
+        "description": "Achieved AWS Solutions Architect Associate certification demonstrating expertise in cloud architecture and AWS services.",
+        "credentialId": "AWS-123456789",
+        "credentialUrl": "https://aws.amazon.com/verification",
+        "location": "Online",
+        "featured": false
+      }
+    ],
+    "certifications": [
+      {
+        "id": "aws-solutions-architect",
+        "name": "AWS Certified Solutions Architect - Associate",
+        "issuer": "Amazon Web Services",
+        "issueDate": "2022-06-01T00:00:00Z",
+        "expiryDate": "2025-06-01T00:00:00Z",
+        "credentialId": "AWS-123456789",
+        "credentialUrl": "https://aws.amazon.com/verification",
+        "description": "Demonstrates expertise in designing distributed systems on AWS",
+        "featured": true
+      },
+      {
+        "id": "nodejs-certification",
+        "name": "Node.js Application Developer",
+        "issuer": "OpenJS Foundation",
+        "issueDate": "2021-12-15T00:00:00Z",
+        "expiryDate": "2024-12-15T00:00:00Z",
+        "credentialId": "NODE-987654321",
+        "description": "Certified Node.js developer with expertise in server-side JavaScript",
+        "featured": false
+      }
+    ],
+    "summary": "Over 8 years of experience in backend engineering with a focus on fintech and ecommerce applications. Proven track record of building scalable systems that handle millions of transactions daily. Expert in Node.js, Python, PostgreSQL, Redis, Docker, Kubernetes, and AWS. Passionate about clean code, system design, and mentoring junior developers.",
+    "totalExperience": {
+      "years": 8,
+      "months": 6
+    },
+    "skillsSummary": [
+      "Backend Engineering",
+      "Fintech Solutions",
+      "Payment Systems",
+      "Microservices Architecture",
+      "Cloud Infrastructure",
+      "API Development",
+      "Database Design",
+      "System Optimization",
+      "Team Leadership",
+      "Technical Consulting"
+    ],
+    "metaTitle": "Experience - Zishan Jawed",
+    "metaDescription": "8+ years of experience in backend engineering, fintech solutions, and scalable architecture.",
+    "socialImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=630&fit=crop",
+    "trackingEnabled": true,
+    "lastUpdated": "2024-12-15T10:00:00Z"
+  },
+  "metaTitle": "Experience - Zishan Jawed",
+  "metaDescription": "8+ years of experience in backend engineering, fintech solutions, and scalable architecture.",
+  "socialImage": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=630&fit=crop",
+  "trackingEnabled": true,
+  "lastUpdated": "2024-12-15T10:00:00Z"
+} 

@@ -1,0 +1,194 @@
+{
+  "person": {
+    "name": "Zishan Jawed",
+    "title": "Backend Engineer & Fintech Specialist",
+    "email": "zishan@zishanjawed.com",
+    "phone": "+91-9876543210",
+    "summary": "Experienced backend engineer specializing in fintech, payment systems, and scalable architecture. Expert in Node.js, Python, and cloud technologies with a proven track record of building high-performance systems that handle millions of transactions daily.",
+    "bio": "I'm a passionate backend engineer with over 8 years of experience building scalable systems for fintech and ecommerce applications. My expertise lies in designing and implementing high-performance payment processing platforms, microservices architectures, and cloud-native solutions. I've worked with leading fintech startups and established companies to deliver robust, secure, and scalable backend systems that power millions of transactions daily. My technical skills span across Node.js, Python, PostgreSQL, Redis, Docker, Kubernetes, and AWS, with a strong focus on system design, API development, and database optimization. I'm committed to writing clean, maintainable code and following best practices for security, performance, and reliability.",
+    "location": {
+      "city": "Mumbai",
+      "country": "India",
+      "timezone": "Asia/Kolkata"
+    },
+    "social": [
+      {
+        "platform": "github",
+        "url": "https://github.com/zishanjawed",
+        "username": "zishanjawed",
+        "displayName": "Zishan Jawed",
+        "verified": true
+      },
+      {
+        "platform": "linkedin",
+        "url": "https://linkedin.com/in/zishanjawed",
+        "username": "zishanjawed",
+        "displayName": "Zishan Jawed",
+        "verified": true
+      },
+      {
+        "platform": "twitter",
+        "url": "https://twitter.com/zishanjawed",
+        "username": "zishanjawed",
+        "displayName": "Zishan Jawed",
+        "verified": false
+      },
+      {
+        "platform": "medium",
+        "url": "https://medium.com/@dev.zishan",
+        "username": "dev.zishan",
+        "displayName": "Zishan Jawed",
+        "verified": false
+      },
+      {
+        "platform": "devto",
+        "url": "https://dev.to/zishanjawed",
+        "username": "zishanjawed",
+        "displayName": "Zishan Jawed",
+        "verified": false
+      }
+    ],
+    "skills": [
+      {
+        "name": "Node.js",
+        "category": "programming",
+        "proficiency": "expert",
+        "yearsOfExperience": 8,
+        "description": "Server-side JavaScript runtime for building scalable network applications",
+        "icon": "https://nodejs.org/static/images/logo.svg",
+        "featured": true,
+        "order": 1,
+        "tags": ["javascript", "backend", "runtime"]
+      },
+      {
+        "name": "Python",
+        "category": "programming",
+        "proficiency": "advanced",
+        "yearsOfExperience": 6,
+        "description": "High-level programming language for backend development and data processing",
+        "icon": "https://www.python.org/static/community_logos/python-logo-generic.svg",
+        "featured": true,
+        "order": 2,
+        "tags": ["backend", "scripting", "automation"]
+      },
+      {
+        "name": "PostgreSQL",
+        "category": "database",
+        "proficiency": "expert",
+        "yearsOfExperience": 7,
+        "description": "Advanced open-source relational database management system",
+        "icon": "https://www.postgresql.org/media/img/about/press/elephant.png",
+        "featured": true,
+        "order": 3,
+        "tags": ["database", "sql", "relational"]
+      },
+      {
+        "name": "Redis",
+        "category": "database",
+        "proficiency": "advanced",
+        "yearsOfExperience": 5,
+        "description": "In-memory data structure store used as database, cache, and message broker",
+        "icon": "https://redis.io/images/redis-white.png",
+        "featured": true,
+        "order": 4,
+        "tags": ["cache", "memory", "key-value"]
+      },
+      {
+        "name": "Docker",
+        "category": "devops",
+        "proficiency": "advanced",
+        "yearsOfExperience": 6,
+        "description": "Platform for developing, shipping, and running applications in containers",
+        "icon": "https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png",
+        "featured": true,
+        "order": 5,
+        "tags": ["containerization", "deployment", "devops"]
+      },
+      {
+        "name": "Kubernetes",
+        "category": "devops",
+        "proficiency": "intermediate",
+        "yearsOfExperience": 4,
+        "description": "Container orchestration platform for automating deployment and scaling",
+        "icon": "https://kubernetes.io/images/kubernetes-horizontal-color.png",
+        "featured": false,
+        "order": 6,
+        "tags": ["orchestration", "scaling", "containers"]
+      },
+      {
+        "name": "AWS",
+        "category": "cloud",
+        "proficiency": "advanced",
+        "yearsOfExperience": 6,
+        "description": "Cloud computing platform providing infrastructure and platform services",
+        "icon": "https://aws.amazon.com/favicon.ico",
+        "featured": true,
+        "order": 7,
+        "tags": ["cloud", "infrastructure", "services"]
+      },
+      {
+        "name": "Express.js",
+        "category": "framework",
+        "proficiency": "expert",
+        "yearsOfExperience": 7,
+        "description": "Fast, unopinionated web framework for Node.js",
+        "icon": "https://expressjs.com/images/express-facebook-share.png",
+        "featured": true,
+        "order": 8,
+        "tags": ["web", "api", "framework"]
+      },
+      {
+        "name": "FastAPI",
+        "category": "framework",
+        "proficiency": "intermediate",
+        "yearsOfExperience": 3,
+        "description": "Modern, fast web framework for building APIs with Python",
+        "icon": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png",
+        "featured": false,
+        "order": 9,
+        "tags": ["python", "api", "async"]
+      },
+      {
+        "name": "TypeScript",
+        "category": "programming",
+        "proficiency": "advanced",
+        "yearsOfExperience": 5,
+        "description": "Typed superset of JavaScript that compiles to plain JavaScript",
+        "icon": "https://www.typescriptlang.org/images/branding/logo.svg",
+        "featured": true,
+        "order": 10,
+        "tags": ["typescript", "javascript", "typing"]
+      }
+    ],
+    "availability": {
+      "status": "available",
+      "message": "Available for new projects and consulting opportunities",
+      "responseTime": "Within 24 hours"
+    },
+    "experience": {
+      "years": 8,
+      "focus": [
+        "Backend Engineering",
+        "Fintech Solutions",
+        "Payment Systems",
+        "Microservices Architecture",
+        "Cloud Infrastructure",
+        "API Development",
+        "Database Design",
+        "System Optimization"
+      ]
+    },
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
+    "banner": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=400&fit=crop",
+    "metaTitle": "Zishan Jawed - Backend Engineer & Fintech Specialist",
+    "metaDescription": "Experienced backend engineer specializing in fintech, payment systems, and scalable architecture. Expert in Node.js, Python, and cloud technologies.",
+    "socialImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=630&fit=crop&crop=face",
+    "trackingEnabled": true,
+    "lastUpdated": "2024-12-15T10:00:00Z"
+  },
+  "metaTitle": "Zishan Jawed - Backend Engineer & Fintech Specialist",
+  "metaDescription": "Experienced backend engineer specializing in fintech, payment systems, and scalable architecture. Expert in Node.js, Python, and cloud technologies.",
+  "socialImage": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&h=630&fit=crop&crop=face",
+  "trackingEnabled": true,
+  "lastUpdated": "2024-12-15T10:00:00Z"
+} 

@@ -1,0 +1,344 @@
+{
+  "skills": {
+    "title": "Technical Skills & Expertise",
+    "description": "Comprehensive overview of technical skills, programming languages, frameworks, and tools with proficiency levels and years of experience.",
+    "categories": [
+      {
+        "id": "programming-languages",
+        "name": "Programming Languages",
+        "description": "Core programming languages and their ecosystems for backend development, scripting, and system programming.",
+        "icon": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=100&h=100&fit=crop",
+        "color": "#2563eb",
+        "order": 1
+      },
+      {
+        "id": "frameworks-libraries",
+        "name": "Frameworks & Libraries",
+        "description": "Web frameworks, libraries, and tools for building scalable applications and APIs.",
+        "icon": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=100&h=100&fit=crop",
+        "color": "#7c3aed",
+        "order": 2
+      },
+      {
+        "id": "databases",
+        "name": "Databases & Storage",
+        "description": "Relational and NoSQL databases, caching solutions, and data storage technologies.",
+        "icon": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=100&h=100&fit=crop",
+        "color": "#059669",
+        "order": 3
+      },
+      {
+        "id": "cloud-infrastructure",
+        "name": "Cloud & Infrastructure",
+        "description": "Cloud platforms, infrastructure as code, and deployment technologies.",
+        "icon": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=100&h=100&fit=crop",
+        "color": "#dc2626",
+        "order": 4
+      },
+      {
+        "id": "devops-tools",
+        "name": "DevOps & Tools",
+        "description": "Containerization, orchestration, CI/CD, and development tools.",
+        "icon": "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=100&h=100&fit=crop",
+        "color": "#ea580c",
+        "order": 5
+      },
+      {
+        "id": "monitoring-testing",
+        "name": "Monitoring & Testing",
+        "description": "Application monitoring, logging, testing frameworks, and quality assurance tools.",
+        "icon": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=100&h=100&fit=crop",
+        "color": "#0891b2",
+        "order": 6
+      }
+    ],
+    "skills": [
+      {
+        "id": "nodejs",
+        "name": "Node.js",
+        "category": "programming-languages",
+        "proficiency": "expert",
+        "yearsOfExperience": 8,
+        "description": "Server-side JavaScript runtime for building scalable network applications",
+        "icon": "https://nodejs.org/static/images/logo.svg",
+        "logo": "https://nodejs.org/static/images/logo.svg",
+        "website": "https://nodejs.org",
+        "documentation": "https://nodejs.org/docs",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "certifications": ["nodejs-certification"],
+        "featured": true,
+        "order": 1,
+        "tags": ["javascript", "backend", "runtime", "async"],
+        "lastUsed": "2024-12-15T10:00:00Z"
+      },
+      {
+        "id": "python",
+        "name": "Python",
+        "category": "programming-languages",
+        "proficiency": "advanced",
+        "yearsOfExperience": 6,
+        "description": "High-level programming language for backend development and data processing",
+        "icon": "https://www.python.org/static/community_logos/python-logo-generic.svg",
+        "logo": "https://www.python.org/static/community_logos/python-logo-generic.svg",
+        "website": "https://python.org",
+        "documentation": "https://docs.python.org",
+        "projects": ["startup-consulting"],
+        "featured": true,
+        "order": 2,
+        "tags": ["backend", "scripting", "automation", "data-science"]
+      },
+      {
+        "id": "typescript",
+        "name": "TypeScript",
+        "category": "programming-languages",
+        "proficiency": "advanced",
+        "yearsOfExperience": 5,
+        "description": "Typed superset of JavaScript that compiles to plain JavaScript",
+        "icon": "https://www.typescriptlang.org/images/branding/logo.svg",
+        "logo": "https://www.typescriptlang.org/images/branding/logo.svg",
+        "website": "https://typescriptlang.org",
+        "documentation": "https://www.typescriptlang.org/docs",
+        "projects": ["fintech-payment-platform"],
+        "featured": true,
+        "order": 3,
+        "tags": ["typescript", "javascript", "typing", "frontend"]
+      },
+      {
+        "id": "expressjs",
+        "name": "Express.js",
+        "category": "frameworks-libraries",
+        "proficiency": "expert",
+        "yearsOfExperience": 7,
+        "description": "Fast, unopinionated web framework for Node.js",
+        "icon": "https://expressjs.com/images/express-facebook-share.png",
+        "logo": "https://expressjs.com/images/express-facebook-share.png",
+        "website": "https://expressjs.com",
+        "documentation": "https://expressjs.com/en/4x/api.html",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "featured": true,
+        "order": 4,
+        "tags": ["web", "api", "framework", "middleware"]
+      },
+      {
+        "id": "fastapi",
+        "name": "FastAPI",
+        "category": "frameworks-libraries",
+        "proficiency": "intermediate",
+        "yearsOfExperience": 3,
+        "description": "Modern, fast web framework for building APIs with Python",
+        "icon": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png",
+        "logo": "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png",
+        "website": "https://fastapi.tiangolo.com",
+        "documentation": "https://fastapi.tiangolo.com/tutorial",
+        "projects": ["startup-consulting"],
+        "featured": false,
+        "order": 5,
+        "tags": ["python", "api", "async", "openapi"]
+      },
+      {
+        "id": "postgresql",
+        "name": "PostgreSQL",
+        "category": "databases",
+        "proficiency": "expert",
+        "yearsOfExperience": 7,
+        "description": "Advanced open-source relational database management system",
+        "icon": "https://www.postgresql.org/media/img/about/press/elephant.png",
+        "logo": "https://www.postgresql.org/media/img/about/press/elephant.png",
+        "website": "https://postgresql.org",
+        "documentation": "https://www.postgresql.org/docs",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "featured": true,
+        "order": 6,
+        "tags": ["database", "sql", "relational", "acid"]
+      },
+      {
+        "id": "redis",
+        "name": "Redis",
+        "category": "databases",
+        "proficiency": "advanced",
+        "yearsOfExperience": 5,
+        "description": "In-memory data structure store used as database, cache, and message broker",
+        "icon": "https://redis.io/images/redis-white.png",
+        "logo": "https://redis.io/images/redis-white.png",
+        "website": "https://redis.io",
+        "documentation": "https://redis.io/documentation",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "featured": true,
+        "order": 7,
+        "tags": ["cache", "memory", "key-value", "pubsub"]
+      },
+      {
+        "id": "mongodb",
+        "name": "MongoDB",
+        "category": "databases",
+        "proficiency": "intermediate",
+        "yearsOfExperience": 3,
+        "description": "Document-oriented NoSQL database for modern applications",
+        "icon": "https://www.mongodb.com/assets/images/global/leaf.svg",
+        "logo": "https://www.mongodb.com/assets/images/global/leaf.svg",
+        "website": "https://mongodb.com",
+        "documentation": "https://docs.mongodb.com",
+        "projects": ["startup-consulting"],
+        "featured": false,
+        "order": 8,
+        "tags": ["nosql", "document", "json", "scalable"]
+      },
+      {
+        "id": "aws",
+        "name": "Amazon Web Services",
+        "category": "cloud-infrastructure",
+        "proficiency": "advanced",
+        "yearsOfExperience": 6,
+        "description": "Cloud computing platform providing infrastructure and platform services",
+        "icon": "https://aws.amazon.com/favicon.ico",
+        "logo": "https://aws.amazon.com/favicon.ico",
+        "website": "https://aws.amazon.com",
+        "documentation": "https://docs.aws.amazon.com",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "certifications": ["aws-solutions-architect"],
+        "featured": true,
+        "order": 9,
+        "tags": ["cloud", "infrastructure", "services", "scalable"]
+      },
+      {
+        "id": "docker",
+        "name": "Docker",
+        "category": "devops-tools",
+        "proficiency": "advanced",
+        "yearsOfExperience": 6,
+        "description": "Platform for developing, shipping, and running applications in containers",
+        "icon": "https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png",
+        "logo": "https://www.docker.com/wp-content/uploads/2022/03/vertical-logo-monochromatic.png",
+        "website": "https://docker.com",
+        "documentation": "https://docs.docker.com",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "featured": true,
+        "order": 10,
+        "tags": ["containerization", "deployment", "devops", "microservices"]
+      },
+      {
+        "id": "kubernetes",
+        "name": "Kubernetes",
+        "category": "devops-tools",
+        "proficiency": "intermediate",
+        "yearsOfExperience": 4,
+        "description": "Container orchestration platform for automating deployment and scaling",
+        "icon": "https://kubernetes.io/images/kubernetes-horizontal-color.png",
+        "logo": "https://kubernetes.io/images/kubernetes-horizontal-color.png",
+        "website": "https://kubernetes.io",
+        "documentation": "https://kubernetes.io/docs",
+        "projects": ["fintech-payment-platform"],
+        "featured": false,
+        "order": 11,
+        "tags": ["orchestration", "scaling", "containers", "microservices"]
+      },
+      {
+        "id": "jest",
+        "name": "Jest",
+        "category": "monitoring-testing",
+        "proficiency": "advanced",
+        "yearsOfExperience": 5,
+        "description": "JavaScript testing framework with a focus on simplicity",
+        "icon": "https://jestjs.io/img/favicon/favicon-96x96.png",
+        "logo": "https://jestjs.io/img/favicon/favicon-96x96.png",
+        "website": "https://jestjs.io",
+        "documentation": "https://jestjs.io/docs/getting-started",
+        "projects": ["fintech-payment-platform", "ecommerce-solutions"],
+        "featured": false,
+        "order": 12,
+        "tags": ["testing", "javascript", "unit", "integration"]
+      },
+      {
+        "id": "prometheus",
+        "name": "Prometheus",
+        "category": "monitoring-testing",
+        "proficiency": "intermediate",
+        "yearsOfExperience": 3,
+        "description": "Systems monitoring and alerting toolkit",
+        "icon": "https://prometheus.io/assets/prometheus_logo_grey.svg",
+        "logo": "https://prometheus.io/assets/prometheus_logo_grey.svg",
+        "website": "https://prometheus.io",
+        "documentation": "https://prometheus.io/docs",
+        "projects": ["fintech-payment-platform"],
+        "featured": false,
+        "order": 13,
+        "tags": ["monitoring", "metrics", "alerting", "observability"]
+      }
+    ],
+    "levels": [
+      {
+        "level": "beginner",
+        "description": "Basic understanding and ability to work with the technology under guidance",
+        "yearsRange": {
+          "min": 0,
+          "max": 2
+        },
+        "color": "#10b981"
+      },
+      {
+        "level": "intermediate",
+        "description": "Good understanding and ability to work independently on most tasks",
+        "yearsRange": {
+          "min": 2,
+          "max": 5
+        },
+        "color": "#f59e0b"
+      },
+      {
+        "level": "advanced",
+        "description": "Deep understanding and ability to solve complex problems and mentor others",
+        "yearsRange": {
+          "min": 5,
+          "max": 8
+        },
+        "color": "#ef4444"
+      },
+      {
+        "level": "expert",
+        "description": "Mastery level with ability to architect solutions and lead technical decisions",
+        "yearsRange": {
+          "min": 8,
+          "max": 50
+        },
+        "color": "#7c3aed"
+      }
+    ],
+    "summary": {
+      "totalSkills": 13,
+      "categories": 6,
+      "yearsOfExperience": 8,
+      "expertSkills": 3,
+      "advancedSkills": 6,
+      "intermediateSkills": 3,
+      "beginnerSkills": 1
+    },
+    "featuredSkills": [
+      "nodejs",
+      "python",
+      "typescript",
+      "expressjs",
+      "postgresql",
+      "redis",
+      "aws",
+      "docker"
+    ],
+    "skillsByCategory": {
+      "programming-languages": ["nodejs", "python", "typescript"],
+      "frameworks-libraries": ["expressjs", "fastapi"],
+      "databases": ["postgresql", "redis", "mongodb"],
+      "cloud-infrastructure": ["aws"],
+      "devops-tools": ["docker", "kubernetes"],
+      "monitoring-testing": ["jest", "prometheus"]
+    },
+    "metaTitle": "Skills - Zishan Jawed",
+    "metaDescription": "Technical skills and expertise in backend engineering, including Node.js, Python, PostgreSQL, Redis, Docker, Kubernetes, and AWS.",
+    "socialImage": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=1200&h=630&fit=crop",
+    "trackingEnabled": true,
+    "lastUpdated": "2024-12-15T10:00:00Z"
+  },
+  "metaTitle": "Skills - Zishan Jawed",
+  "metaDescription": "Technical skills and expertise in backend engineering, including Node.js, Python, PostgreSQL, Redis, Docker, Kubernetes, and AWS.",
+  "socialImage": "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?w=1200&h=630&fit=crop",
+  "trackingEnabled": true,
+  "lastUpdated": "2024-12-15T10:00:00Z"
+} 
