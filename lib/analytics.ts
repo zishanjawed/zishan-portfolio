@@ -10,11 +10,20 @@ interface AnalyticsEvent {
   value?: number;
 }
 
+interface FilterEvent {
+  action: string;
+  category: string;
+  label?: string;
+  value?: number;
+  filters?: Array<{ key: string; value: string | boolean }>;
+  total_writings?: number;
+}
+
 /**
  * Track an analytics event
  * @param event - The event to track
  */
-export function trackEvent(event: AnalyticsEvent): void {
+export function trackEvent(event: AnalyticsEvent | FilterEvent): void {
   try {
     // Check if Cloudflare Web Analytics is available
     if (typeof window !== 'undefined' && (window as any).dataLayer) {
@@ -63,5 +72,44 @@ export function trackContentView(title: string, type: string): void {
     action: 'view_content',
     category: 'engagement',
     label: `${title} (${type})`,
+  });
+}
+
+/**
+ * Track iframe load
+ * @param title - The title of the iframe content
+ * @param source - The source URL of the iframe
+ */
+export function trackIframeLoad(title: string, source: string): void {
+  trackEvent({
+    action: 'iframe_loaded',
+    category: 'iframe',
+    label: `${title} (${source})`,
+  });
+}
+
+/**
+ * Track iframe error
+ * @param title - The title of the iframe content
+ * @param error - The error message
+ */
+export function trackIframeError(title: string, error: string): void {
+  trackEvent({
+    action: 'iframe_error',
+    category: 'iframe',
+    label: `${title} (${error})`,
+  });
+}
+
+/**
+ * Track iframe interaction
+ * @param title - The title of the iframe content
+ * @param interactionType - The type of interaction
+ */
+export function trackIframeInteraction(title: string, interactionType: string): void {
+  trackEvent({
+    action: 'iframe_interaction',
+    category: 'iframe',
+    label: `${title} (${interactionType})`,
   });
 } 

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
 import { loadWritingContent, sortWritingsByDate } from '../../../lib/content/writing';
-import { WritingGrid } from '../../../components/content/writing-grid';
+import { WritingPageClient } from '../../../components/content/writing-page-client';
 
 // Generate metadata for SEO
 export async function generateMetadata(): Promise<Metadata> {
@@ -144,27 +144,12 @@ async function WritingPageContent() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            {/* Page Header */}
-            <header className="mb-12">
-              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-                {data.title}
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl">
-                {data.description}
-              </p>
-              <div className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-                {data.totalCount} article{data.totalCount !== 1 ? 's' : ''} published
-              </div>
-            </header>
-
-            {/* Writing Grid */}
-            <main>
-              <WritingGrid writings={sortedWritings} />
-            </main>
-          </div>
-        </div>
+        <WritingPageClient
+          writings={sortedWritings}
+          title={data.title}
+          description={data.description}
+          totalCount={data.totalCount}
+        />
       </>
     );
   } catch (error) {

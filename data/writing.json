@@ -1,6 +1,11 @@
 {
   "title": "Writing & Articles",
   "description": "Technical articles, blog posts, and external writing by Zishan Jawed on backend engineering, fintech, and software architecture.",
+  "metaTitle": "Writing & Articles - Zishan Jawed",
+  "metaDescription": "Explore technical articles and blog posts by Zishan Jawed on backend engineering, fintech, and software architecture.",
+  "socialImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=630&fit=crop",
+  "lastUpdated": "2024-12-15T10:00:00Z",
+  "trackingEnabled": true,
   "writings": [
     {
       "id": "payment-systems-architecture",
@@ -13,7 +18,14 @@
       "tags": ["fintech", "payments", "architecture", "scalability"],
       "featured": true,
       "author": "Zishan Jawed",
-      "source": "Medium"
+      "source": "Medium",
+      "platform": "Medium",
+      "category": "fintech",
+      "language": "en",
+      "metaTitle": "Building Scalable Payment Systems - Fintech Architecture",
+      "metaDescription": "Learn how to design and implement scalable payment architectures for fintech applications.",
+      "socialImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop",
+      "trackingId": "payment-systems-article"
     },
     {
       "id": "microservices-patterns",
@@ -26,7 +38,13 @@
       "tags": ["microservices", "backend", "patterns", "performance"],
       "featured": false,
       "author": "Zishan Jawed",
-      "source": "Dev.to"
+      "source": "Dev.to",
+      "platform": "Dev.to",
+      "category": "backend",
+      "language": "en",
+      "metaTitle": "Microservices Patterns for High-Performance Backends",
+      "metaDescription": "Discover proven patterns and anti-patterns for building scalable microservices.",
+      "trackingId": "microservices-patterns-article"
     },
     {
       "id": "aws-cost-optimization",
@@ -40,7 +58,14 @@
       "featured": true,
       "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop",
       "author": "Zishan Jawed",
-      "source": "Tech Blog"
+      "source": "Tech Blog",
+      "platform": "Personal Blog",
+      "category": "devops",
+      "language": "en",
+      "metaTitle": "AWS Cost Optimization Strategies for Startups",
+      "metaDescription": "Learn practical strategies to reduce AWS costs while maintaining performance.",
+      "socialImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop",
+      "trackingId": "aws-cost-optimization-article"
     },
     {
       "id": "python-performance-tips",
@@ -53,7 +78,13 @@
       "tags": ["python", "performance", "backend", "optimization"],
       "featured": false,
       "author": "Zishan Jawed",
-      "source": "Personal Blog"
+      "source": "Personal Blog",
+      "platform": "Personal Blog",
+      "category": "backend",
+      "language": "en",
+      "metaTitle": "Python Performance Optimization for Backend Services",
+      "metaDescription": "Advanced techniques for optimizing Python applications in production.",
+      "trackingId": "python-performance-article"
     },
     {
       "id": "database-design-principles",
@@ -66,7 +97,13 @@
       "tags": ["database", "design", "scalability", "performance"],
       "featured": true,
       "author": "Zishan Jawed",
-      "source": "Database Weekly"
+      "source": "Database Weekly",
+      "platform": "Other",
+      "category": "architecture",
+      "language": "en",
+      "metaTitle": "Database Design Principles for High-Traffic Applications",
+      "metaDescription": "Essential database design principles for applications handling millions of transactions.",
+      "trackingId": "database-design-article"
     },
     {
       "id": "api-security-best-practices",
@@ -79,7 +116,13 @@
       "tags": ["api", "security", "fintech", "authentication"],
       "featured": false,
       "author": "Zishan Jawed",
-      "source": "Security Blog"
+      "source": "Security Blog",
+      "platform": "Personal Blog",
+      "category": "security",
+      "language": "en",
+      "metaTitle": "API Security Best Practices for Financial Applications",
+      "metaDescription": "Comprehensive security guidelines for building APIs in the financial sector.",
+      "trackingId": "api-security-article"
     }
   ],
   "totalCount": 6

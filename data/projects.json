@@ -1,0 +1,394 @@
+{
+  "title": "Projects & Case Studies",
+  "description": "A collection of portfolio projects and case studies showcasing Zishan Jawed's expertise in backend engineering, fintech solutions, and scalable architecture.",
+  "metaTitle": "Projects & Case Studies - Zishan Jawed",
+  "metaDescription": "Explore Zishan Jawed's portfolio projects and case studies in fintech, ecommerce, and scalable backend architecture.",
+  "socialImage": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=630&fit=crop",
+  "lastUpdated": "2024-12-15T10:00:00Z",
+  "trackingEnabled": true,
+  "projects": [
+    {
+      "id": "fintech-payment-platform",
+      "title": "Scalable Payment Processing Platform",
+      "description": "Built a high-performance payment processing platform handling millions of transactions daily for a leading fintech startup, implementing microservices architecture with 99.99% uptime.",
+      "shortDescription": "High-performance payment platform processing millions of daily transactions",
+      "category": "fintech",
+      "client": "PayFlow Technologies",
+      "technologies": [
+        {
+          "name": "Node.js",
+          "category": "backend",
+          "version": "18.x"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "database",
+          "version": "15.x"
+        },
+        {
+          "name": "Redis",
+          "category": "database",
+          "version": "7.x"
+        },
+        {
+          "name": "Docker",
+          "category": "devops"
+        },
+        {
+          "name": "Kubernetes",
+          "category": "devops"
+        },
+        {
+          "name": "AWS",
+          "category": "devops"
+        }
+      ],
+      "startDate": "2023-01-15T00:00:00Z",
+      "endDate": "2024-06-30T00:00:00Z",
+      "status": "completed",
+      "featured": true,
+      "thumbnail": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop"
+      ],
+      "metrics": {
+        "users": 500000,
+        "transactions": 5000000,
+        "performance": "99.99% uptime",
+        "uptime": "99.99%",
+        "cost": "40% reduction in infrastructure costs"
+      },
+      "caseStudy": {
+        "overview": "Designed and implemented a scalable payment processing platform that handles millions of transactions daily while maintaining high availability and security standards. The platform serves as the backbone for multiple fintech products and integrates with various payment gateways.",
+        "challenge": "The client needed a payment platform that could scale from handling thousands to millions of transactions daily while maintaining sub-100ms response times and 99.99% uptime. The system needed to be PCI DSS compliant and integrate with multiple payment gateways.",
+        "solution": "Implemented a microservices architecture using Node.js and PostgreSQL with Redis for caching. Used Docker and Kubernetes for containerization and orchestration. Implemented circuit breakers, rate limiting, and comprehensive monitoring. Used AWS for infrastructure with auto-scaling capabilities.",
+        "results": "Successfully launched the platform handling 5M+ daily transactions with 99.99% uptime. Achieved sub-100ms response times and 40% reduction in infrastructure costs. The platform now serves as the foundation for multiple fintech products.",
+        "lessons": [
+          "Microservices require careful design of service boundaries and communication patterns",
+          "Database sharding and read replicas are crucial for high-volume transaction processing",
+          "Comprehensive monitoring and alerting are essential for maintaining high availability",
+          "Security-first approach is critical in fintech applications"
+        ]
+      },
+      "links": [
+        {
+          "label": "Case Study",
+          "url": "https://example.com/case-studies/fintech-payment-platform",
+          "type": "case-study",
+          "external": true
+        },
+        {
+          "label": "Architecture Overview",
+          "url": "https://example.com/architecture/payment-platform",
+          "type": "documentation",
+          "external": true
+        }
+      ],
+      "teamSize": 8,
+      "role": "Lead Backend Engineer",
+      "responsibilities": [
+        "Architected the microservices-based payment processing system",
+        "Implemented high-performance database design with sharding",
+        "Designed and implemented security and compliance features",
+        "Led the development team and mentored junior engineers",
+        "Established monitoring, logging, and alerting infrastructure"
+      ],
+      "metaTitle": "Scalable Payment Processing Platform - Fintech Case Study",
+      "metaDescription": "High-performance payment platform processing millions of daily transactions with 99.99% uptime and microservices architecture.",
+      "socialImage": "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=630&fit=crop",
+      "trackingId": "fintech-payment-platform"
+    },
+    {
+      "id": "ecommerce-marketplace",
+      "title": "Multi-Vendor Ecommerce Marketplace",
+      "description": "Developed a comprehensive multi-vendor ecommerce platform supporting thousands of sellers with advanced inventory management, order processing, and analytics capabilities.",
+      "shortDescription": "Multi-vendor marketplace platform with advanced inventory management",
+      "category": "ecommerce",
+      "client": "MarketHub Inc.",
+      "technologies": [
+        {
+          "name": "Python",
+          "category": "backend",
+          "version": "3.11"
+        },
+        {
+          "name": "Django",
+          "category": "backend",
+          "version": "4.2"
+        },
+        {
+          "name": "PostgreSQL",
+          "category": "database",
+          "version": "14.x"
+        },
+        {
+          "name": "Celery",
+          "category": "backend"
+        },
+        {
+          "name": "Redis",
+          "category": "database"
+        },
+        {
+          "name": "React",
+          "category": "frontend",
+          "version": "18.x"
+        },
+        {
+          "name": "AWS",
+          "category": "devops"
+        }
+      ],
+      "startDate": "2022-08-01T00:00:00Z",
+      "endDate": "2023-12-15T00:00:00Z",
+      "status": "completed",
+      "featured": true,
+      "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=1200&h=600&fit=crop"
+      ],
+      "metrics": {
+        "users": 100000,
+        "transactions": 500000,
+        "performance": "2s average page load time",
+        "uptime": "99.9%",
+        "cost": "30% reduction in operational costs"
+      },
+      "caseStudy": {
+        "overview": "Built a comprehensive multi-vendor ecommerce marketplace that enables thousands of sellers to list and sell products with advanced inventory management, order processing, and analytics capabilities.",
+        "challenge": "The client needed a scalable marketplace platform that could support thousands of vendors, handle complex inventory management, process orders efficiently, and provide comprehensive analytics for both vendors and administrators.",
+        "solution": "Developed a Django-based backend with PostgreSQL for data storage and Redis for caching. Implemented Celery for background task processing. Built a React frontend for the admin panel and vendor dashboard. Used AWS for hosting and CDN services.",
+        "results": "Successfully launched the marketplace with 10,000+ vendors and 100,000+ users. Achieved 2-second average page load times and 99.9% uptime. Reduced operational costs by 30% through automation and optimization.",
+        "lessons": [
+          "Multi-tenant architecture requires careful data isolation and security considerations",
+          "Inventory management systems need real-time synchronization across multiple vendors",
+          "Background task processing is essential for handling large-scale operations",
+          "Comprehensive analytics help vendors optimize their business performance"
+        ]
+      },
+      "links": [
+        {
+          "label": "Live Demo",
+          "url": "https://demo.markethub.com",
+          "type": "demo",
+          "external": true
+        },
+        {
+          "label": "Technical Documentation",
+          "url": "https://docs.markethub.com",
+          "type": "documentation",
+          "external": true
+        }
+      ],
+      "teamSize": 12,
+      "role": "Senior Backend Engineer",
+      "responsibilities": [
+        "Designed and implemented the multi-tenant architecture",
+        "Built the inventory management and order processing systems",
+        "Developed vendor dashboard and analytics features",
+        "Implemented payment processing and commission tracking",
+        "Optimized database queries and caching strategies"
+      ],
+      "metaTitle": "Multi-Vendor Ecommerce Marketplace - Case Study",
+      "metaDescription": "Comprehensive multi-vendor marketplace platform supporting thousands of sellers with advanced inventory management and analytics.",
+      "socialImage": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=630&fit=crop",
+      "trackingId": "ecommerce-marketplace"
+    },
+    {
+      "id": "saas-analytics-platform",
+      "title": "Real-Time Analytics Dashboard",
+      "description": "Created a real-time analytics platform for SaaS companies with advanced data visualization, custom reporting, and automated insights generation.",
+      "shortDescription": "Real-time analytics platform with advanced data visualization",
+      "category": "saas",
+      "client": "DataInsight Pro",
+      "technologies": [
+        {
+          "name": "Python",
+          "category": "backend",
+          "version": "3.10"
+        },
+        {
+          "name": "FastAPI",
+          "category": "backend"
+        },
+        {
+          "name": "ClickHouse",
+          "category": "database"
+        },
+        {
+          "name": "Apache Kafka",
+          "category": "backend"
+        },
+        {
+          "name": "React",
+          "category": "frontend",
+          "version": "17.x"
+        },
+        {
+          "name": "D3.js",
+          "category": "frontend"
+        },
+        {
+          "name": "Docker",
+          "category": "devops"
+        },
+        {
+          "name": "GCP",
+          "category": "devops"
+        }
+      ],
+      "startDate": "2023-03-01T00:00:00Z",
+      "endDate": "2024-02-28T00:00:00Z",
+      "status": "completed",
+      "featured": false,
+      "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop"
+      ],
+      "metrics": {
+        "users": 50000,
+        "transactions": 1000000,
+        "performance": "Sub-500ms query response time",
+        "uptime": "99.95%",
+        "cost": "50% reduction in data processing costs"
+      },
+      "caseStudy": {
+        "overview": "Developed a real-time analytics platform that enables SaaS companies to track user behavior, generate custom reports, and receive automated insights. The platform processes millions of events daily and provides sub-500ms query response times.",
+        "challenge": "The client needed an analytics platform that could handle millions of events daily, provide real-time insights, support custom reporting, and scale to serve hundreds of SaaS companies with different data schemas.",
+        "solution": "Built a FastAPI backend with ClickHouse for time-series data storage and Apache Kafka for event streaming. Implemented a React frontend with D3.js for data visualization. Used GCP for infrastructure and data processing services.",
+        "results": "Successfully launched the platform serving 50,000+ users across 500+ SaaS companies. Achieved sub-500ms query response times and 99.95% uptime. Reduced data processing costs by 50% through optimization.",
+        "lessons": [
+          "Time-series databases like ClickHouse are essential for analytics workloads",
+          "Event streaming with Kafka enables real-time data processing",
+          "Custom reporting requires flexible data schema design",
+          "Data visualization libraries need careful performance optimization"
+        ]
+      },
+      "links": [
+        {
+          "label": "Product Demo",
+          "url": "https://demo.datainsightpro.com",
+          "type": "demo",
+          "external": true
+        },
+        {
+          "label": "API Documentation",
+          "url": "https://api.datainsightpro.com/docs",
+          "type": "documentation",
+          "external": true
+        }
+      ],
+      "teamSize": 6,
+      "role": "Full Stack Engineer",
+      "responsibilities": [
+        "Designed the data architecture and schema for analytics",
+        "Implemented real-time data processing with Kafka",
+        "Built the analytics API with FastAPI",
+        "Developed interactive data visualizations with D3.js",
+        "Optimized database queries and data processing pipelines"
+      ],
+      "metaTitle": "Real-Time Analytics Dashboard - SaaS Platform",
+      "metaDescription": "Real-time analytics platform with advanced data visualization and automated insights for SaaS companies.",
+      "socialImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=630&fit=crop",
+      "trackingId": "saas-analytics-platform"
+    },
+    {
+      "id": "open-source-api-framework",
+      "title": "High-Performance API Framework",
+      "description": "Developed an open-source API framework for building scalable microservices with built-in authentication, rate limiting, and comprehensive documentation.",
+      "shortDescription": "Open-source API framework for scalable microservices",
+      "category": "open-source",
+      "client": "Open Source Community",
+      "technologies": [
+        {
+          "name": "TypeScript",
+          "category": "backend",
+          "version": "5.x"
+        },
+        {
+          "name": "Node.js",
+          "category": "backend",
+          "version": "18.x"
+        },
+        {
+          "name": "Express",
+          "category": "backend"
+        },
+        {
+          "name": "Jest",
+          "category": "backend"
+        },
+        {
+          "name": "Docker",
+          "category": "devops"
+        },
+        {
+          "name": "GitHub Actions",
+          "category": "devops"
+        }
+      ],
+      "startDate": "2022-01-01T00:00:00Z",
+      "endDate": "2023-12-31T00:00:00Z",
+      "status": "completed",
+      "featured": false,
+      "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=400&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=600&fit=crop",
+        "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1200&h=600&fit=crop"
+      ],
+      "metrics": {
+        "users": 10000,
+        "performance": "Sub-100ms response times",
+        "uptime": "99.9%"
+      },
+      "caseStudy": {
+        "overview": "Created an open-source API framework that simplifies building scalable microservices with built-in authentication, rate limiting, validation, and comprehensive documentation. The framework has been adopted by thousands of developers worldwide.",
+        "challenge": "Developers needed a modern, TypeScript-based API framework that provides common functionality like authentication, rate limiting, and validation out of the box, while maintaining high performance and developer experience.",
+        "solution": "Built a TypeScript-based framework using Node.js and Express with built-in middleware for authentication, rate limiting, request validation, and error handling. Implemented comprehensive testing with Jest and CI/CD with GitHub Actions.",
+        "results": "The framework has been downloaded over 100,000 times and is used by 10,000+ developers. Achieved sub-100ms response times and 99.9% uptime. Received positive feedback from the developer community.",
+        "lessons": [
+          "Open-source projects require excellent documentation and examples",
+          "TypeScript provides better developer experience and type safety",
+          "Built-in middleware reduces boilerplate code significantly",
+          "Community feedback is invaluable for improving developer tools"
+        ]
+      },
+      "links": [
+        {
+          "label": "GitHub Repository",
+          "url": "https://github.com/example/api-framework",
+          "type": "github",
+          "external": true
+        },
+        {
+          "label": "Documentation",
+          "url": "https://docs.api-framework.dev",
+          "type": "documentation",
+          "external": true
+        },
+        {
+          "label": "NPM Package",
+          "url": "https://www.npmjs.com/package/api-framework",
+          "type": "other",
+          "external": true
+        }
+      ],
+      "teamSize": 3,
+      "role": "Lead Developer",
+      "responsibilities": [
+        "Designed the framework architecture and API design",
+        "Implemented core middleware and utilities",
+        "Created comprehensive documentation and examples",
+        "Maintained the open-source project and community",
+        "Set up CI/CD and testing infrastructure"
+      ],
+      "metaTitle": "High-Performance API Framework - Open Source",
+      "metaDescription": "Open-source TypeScript API framework for building scalable microservices with built-in authentication and rate limiting.",
+      "socialImage": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&h=630&fit=crop",
+      "trackingId": "open-source-api-framework"
+    }
+  ]
+} 
